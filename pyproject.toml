@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "qualixdev"
+version = "0.1.0"
+description = ""
+authors = ["Denis <ad.way@mail.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0.6"
+django-bootstrap5 = "^24.2"
+requests = "^2.32.3"
+
+
+[tool.poetry.group.dev.dependencies]
+coverage = "^7.5.3"
+flake8 = "^7.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

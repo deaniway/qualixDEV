@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSON-RPC Client</title>
+    <!-- Подключаем Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>JSON-RPC Client</h1>
+
+        <!-- Форма для ввода метода и параметров -->
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="input_method">Method</label>
+                <input type="text" class="form-control" id="input_method" name="method" placeholder="Enter method...">
+            </div>
+            <div class="form-group">
+                <label for="input_params">Params</label>
+                <textarea class="form-control" id="input_params" name="params" rows="5" placeholder="Enter JSON params..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <!-- Отображение результата -->
+        {% if result %}
+            <h2 class="mt-5">Result:</h2>
+            <div class="form-group">
+                <label for="result_data">Result Data</label>
+                <textarea class="form-control" id="result_data" rows="10" readonly>{{ result }}</textarea>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Подключаем Bootstrap JS и jQuery (необходим для некоторых функций Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-NtKGX/5gISL6I3Dj3l8F+2zyt7YQfn9F4P67x4EJga3OtK9ubfFhMAvQzDM1Cw1k" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-w4N53wY4d0sMwTDHM1Jwanh51G8lGdh0l59yfvlxgs9NtkEz4i5Ogsqu9P8kXfoP" crossorigin="anonymous"
