@@ -14,18 +14,15 @@ def jsonrpc_request(method, params):
     }
 
     try:
-        # Загружаем сертификат и ключ из настроек Django
+
         cert_data = settings.CERTIFICATE
         key_data = settings.PRIVATE_KEY
 
-        # Отправляем запрос с использованием requests
         response = requests.post(url, json=payload, headers=headers,
                                  cert=(tempfile_data(cert_data), tempfile_data(key_data)))
 
-        # Проверяем успешность запроса
         response.raise_for_status()
 
-        # Получаем и возвращаем результат
         result = response.json()
     except requests.exceptions.RequestException as e:
         result = {"Exception error": str(e)}
